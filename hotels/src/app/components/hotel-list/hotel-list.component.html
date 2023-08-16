@@ -1,0 +1,38 @@
+<div *ngFor="let hotel of hoteis">
+    <div class="hotels" *ngFor="let data of hotel?.hotels">
+    <div class="grid">
+        <div class="item image">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" [src]="data.thumb">
+                    </div>
+                    <div class="carousel-item" *ngFor="let image of data?.images">
+                        <img class="d-block w-100" [src]="image">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div class="item descricao">
+            <p>{{data?.name}}</p>
+            <p>{{data?.address?.city}}, {{data?.address?.fullAddress}}</p>
+            <p>{{data?.stars}}</p>
+            <p>{{data?.hasRefundableRoom}}</p>
+        </div>
+        <div class="item valor">
+            <p>A partir de: </p>
+            <p class="preco">R${{data?.price}}</p>
+            <button type="button" class="btn btn-primary">Selecionar</button>
+        </div>
+    </div>
+</div>
+</div>
+

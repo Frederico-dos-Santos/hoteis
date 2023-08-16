@@ -1,0 +1,11 @@
+.title {
+    border-bottom: 1px solid black;
+}
+
+.header {
+    width: 900px;
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 100px 0 100px 0;
+}

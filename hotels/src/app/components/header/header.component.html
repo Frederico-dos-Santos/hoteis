@@ -1,0 +1,18 @@
+<ng-container class="header">
+    <div class="title">
+        <h1>Reservar hotel</h1>
+    </div>
+    <div class="form" *ngIf="places">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Destino</mat-label>
+              <input type="text" placeholder="Escolha um destino" aria-label="Escolha um destino" matInput [formControl]="myControl" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+    </div>
+</ng-container>
