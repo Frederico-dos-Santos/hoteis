@@ -13,7 +13,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { PlaceService } from './services/place.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // or NoopAnimationsModule for testing
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { FormsModule } from '@angular/forms';
+import { DrawerHotelComponent } from './components/drawer-hotel/drawer-hotel.component';
+
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
     AppComponent,
     HotelListComponent,
     NavBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    DrawerHotelComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
     MatInputModule,
     MatAutocompleteModule, 
     ReactiveFormsModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [HotelService, PlaceService],
   bootstrap: [AppComponent]

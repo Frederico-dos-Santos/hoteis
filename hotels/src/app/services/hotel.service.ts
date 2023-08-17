@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core'
-import { Observable, of } from 'rxjs';
+import { EMPTY, Observable, of } from 'rxjs';
 import { iHotel } from '../interfaces/ihotel';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class HotelService {
     } catch (error){
       console.error(this.constructor.name, "getHotel", error)
     }
-    return of(null);
+    return EMPTY;
   }
 
 }

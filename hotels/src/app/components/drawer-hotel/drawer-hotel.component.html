@@ -1,0 +1,32 @@
+<div class="drawer">
+    <div class="drawer-header">
+      <h2>{{selectedHotel?.name}}</h2>
+    </div>
+    <div class="drawer-content">
+      <div id="carouselExampleDrawer" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" [src]="selectedHotel?.thumb">
+          </div>
+          <div class="carousel-item" *ngFor="let image of selectedHotel?.images">
+            <img class="d-block w-100" [src]="image">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDrawer" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDrawer" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="hotel-details">
+        <p>{{selectedHotel?.address?.city}}, {{selectedHotel?.address?.fullAddress}}</p>
+        <p>{{selectedHotel?.stars}}</p>
+        <p>{{selectedHotel?.hasRefundableRoom}}</p>
+        <p>A partir de: <span class="preco">R${{selectedHotel?.price}}</span></p>
+        <button type="button" class="btn btn-primary">Reservar</button>
+      </div>
+    </div>
+  </div>

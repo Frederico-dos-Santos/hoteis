@@ -1,3 +1,11 @@
+    <div class="order">
+        <label class="labelOrder">Ordenar por:</label>
+        <select [(ngModel)]="selectedSorted" (change)="ordenar()">
+          <option value="recommended">Recomendados</option>
+          <option value="name">Nome</option>
+          <option value="stars">Melhor Avaliados</option>
+        </select>
+      </div>
 <div *ngFor="let hotel of hoteis">
     <div class="hotels" *ngFor="let data of hotel?.hotels">
     <div class="grid">
@@ -24,15 +32,18 @@
         <div class="item descricao">
             <p>{{data?.name}}</p>
             <p>{{data?.address?.city}}, {{data?.address?.fullAddress}}</p>
-            <p>{{data?.stars}}</p>
-            <p>{{data?.hasRefundableRoom}}</p>
+            <p>{{data?.stars}} <b style="color: goldenrod;"> {{getStarRating(data?.stars)}}</b></p>
+            <button type="button" class="btn btn-secondary" *ngIf="data?.hasRefundableRoom" disabled>Reembolsável</button>
         </div>
         <div class="item valor">
             <p>A partir de: </p>
             <p class="preco">R${{data?.price}}</p>
-            <button type="button" class="btn btn-primary">Selecionar</button>
+            <button type="button" class="btn btn-primary" (click)="openDrawer(data)">Selecionar</button>
         </div>
     </div>
 </div>
 </div>
 
+<div class="drawer" *ngIf="showDrawer">
+    <app-drawer-hotel [selectedHotel]="selectedHotel"></app-drawer-hotel>
+</div>
